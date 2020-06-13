@@ -23,8 +23,11 @@ else
     rm -rf build
     mkdir build
 fi
+if [ ! -d /u/$USER/complex_bessel_lib ]; then
+    mkdir /u/$USER/complex_bessel_lib
+fi
 
 # Change to build dir and compile the library.
 cd build
-FC=/usr/bin/gfortran cmake -DCMAKE_INSTALL_PREFIX=/u/drenner/test -DBUILD_TESTING=OFF  ..
+FC=/usr/bin/gfortran cmake -DCMAKE_INSTALL_PREFIX=/u/$USER/complex_bessel_lib -DBUILD_TESTING=OFF  ..
 make $1
