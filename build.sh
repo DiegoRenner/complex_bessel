@@ -23,8 +23,8 @@ else
     rm -rf build
     mkdir build
 fi
-if [ ! -d /u/$USER/complex_bessel_lib ]; then
-    mkdir /u/$USER/complex_bessel_lib
+if [ ! -d $1/complex_bessel_lib ]; then
+    mkdir $1/complex_bessel_lib
 fi
 
 # Change to build dir and compile the library.
