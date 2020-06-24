@@ -10,7 +10,8 @@
 # This script simply calls CMake from the  #
 # build directory and compiles the library.#
 #                                          #
-# Usage: bash build.sh {make_arg}          #
+# Usage: bash build.sh {install_dir}	   #
+# 					   {make_arg}          #
 # -----------------------------------------#
 
 # Change to file directory.
@@ -24,12 +25,14 @@ else
     mkdir build
 fi
 # Check if basedirectory was given as commandline argument
-if [-z "$1"]; then
-	basedir=$1
-else
+if [ -z "$1" ]; then
 	basedir="/usr"
+	echo test
+	echo test
+else
+	basedir=$1
 fi
 # Change to build dir and compile the library.
 cd build
 FC=/usr/bin/gfortran cmake -DCMAKE_INSTALL_PREFIX=$basedir -DBUILD_TESTING=OFF  ..
-make $1
+make $2
