@@ -23,11 +23,13 @@ else
     rm -rf build
     mkdir build
 fi
-if [ ! -d $1/complex_bessel_lib ]; then
-    mkdir $1/complex_bessel_lib
+# Check if basedirectory was given as commandline argument
+if [-z "$1"]; then
+	basedir=$1
+else
+	basedir="/usr"
 fi
-
 # Change to build dir and compile the library.
 cd build
-FC=/usr/bin/gfortran cmake -DCMAKE_INSTALL_PREFIX=$1/complex_bessel_lib -DBUILD_TESTING=OFF  ..
+FC=/usr/bin/gfortran cmake -DCMAKE_INSTALL_PREFIX=$basedir -DBUILD_TESTING=OFF  ..
 make $1
