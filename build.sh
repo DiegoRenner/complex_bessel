@@ -27,8 +27,6 @@ fi
 # Check if basedirectory was given as commandline argument
 if [ -z "$1" ]; then
 	basedir="/usr"
-	echo test
-	echo test
 else
 	basedir=$1
 fi
